@@ -9,7 +9,7 @@ title: 2020-2-22 English lesson1
 
 	I will wait for you if you finish your job.
 
-
+<br>
 ###**bother:** to annoy someone
 	
 	Don't boter her--she is working
