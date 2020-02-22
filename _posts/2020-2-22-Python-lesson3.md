@@ -25,7 +25,9 @@ title: 2020-2-22 Python高级运用
 	>...
 	>AttributeError:"Student"object has no attribute "grade".
 
-__slots__的目的是限制当前类所拥有的属性，如果不需要添加任何动态的属性，使用__slots__也能节省内存。**__slot__**中定义的可以是属性也可以是方法。
+
+从上可以看出__slots__的目的是限制当前类所拥有的属性，如果不需要添加任何动态的属性，使用__slots__也能节省内存。<br>
+当然，__slot__中定义的可以是属性也可以是方法。
 
 ### 二、Python中__call__
 
@@ -40,13 +42,18 @@ __slots__的目的是限制当前类所拥有的属性，如果不需要添加�
 			print("my name is %s..."%self.name)
 			print("my friend is %s..."%self.friend)
 
+
 现在可以对Person实例直接调用
 	
+
+
 	>>>p = Person("Bob","Male")
 	>>>p("Tim")
 	>my name is Bob...
 	>my friend is Tim...
-	>
+	
+
+
 单看p("Tim")，无法确定p是一个函数还是一个类实例，所以，在Python中，函数也是对象，对象和函数的区别并不是很显著。<br>
 下面实例通过实现__call__方法，调用类实例
 
@@ -60,7 +67,9 @@ __slots__的目的是限制当前类所拥有的属性，如果不需要添加�
 				a,b = b,a+b
 			return lst
 
+
 在命令行中进行调用
+
 
 	>>>f = Fib()
 	>>>print(f(10))
