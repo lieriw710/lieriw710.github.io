@@ -24,3 +24,23 @@ title: 2020-2-22 English lesson1
 
 	The boss has a really nice office
 	Every day, I need to go to my office to work
+**show:** a television or radio program
+
+	They watch one or two TV shows every evening.
+	If you want to focus on something,you should not watch TV shows 
+**news:** reports about things that are happening in the world
+
+	I read the news on the Internet every monring.
+	I watch the news and shows on TV every night.
+**busy:**A busy person is working or has a lot to do.
+
+	Can I call you tomorrow? I'm very busy today.
+	If you have a lot of work to do ,you should let you busy now!
+**excited** happy about and interested in something
+
+	I'm very excited about my new job
+	If you work hard,you will give more ,so you should  be excited every day
+**nervous:**worried or afraid
+
+	I'm nervous about my test tomorrow.
+	In the last year, because when I speak nervously, I lost my promotion
