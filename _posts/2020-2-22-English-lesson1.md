@@ -67,3 +67,13 @@ title: 2020-2-22 English lesson1
 
 	I'm nervous about my test tomorrow.
 	In the last year, because when I speak nervously, I lost my promotion
+
+### halfway:midway between two points
+
+	she was leading at the halfway mark of the race
+	we're halfway toward completing the project
+	They're only offering halfway measures,not a real solution
+
+### concatenation: a group of things linked together or occurring together in a way that produces a particular result or effect.
+
+	concatenation is basically the process of taking a string appending another string onto it
