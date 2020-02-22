@@ -4,12 +4,12 @@ title: 2020-2-22 English lesson1
 ---
 **Good morning!** Today I study at "sualearns.org" to learn English, This is my first day in this website, I'm sure this time I must try my best.imagine that today I am 50th years old man, what can I do now, it's nothing! I will very disappoint.so what am I still waiting for? <br>
 
-## **lesson 1 vocabulary** <br>
-### **wait:** to stay somewhere unitl something happens 
+## lesson 1 vocabulary 
+### wait: to stay somewhere unitl something happens 
 
 	I will wait for you if you finish your job.
 
-<br>
+
 ### **bother:** to annoy someone
 	
 	Don't boter her--she is working
