@@ -77,3 +77,6 @@ title: 2020-2-22 English lesson1
 ### concatenation: a group of things linked together or occurring together in a way that produces a particular result or effect.
 
 	concatenation is basically the process of taking a string appending another string onto it
+
+
+###                             ---------------End----------------

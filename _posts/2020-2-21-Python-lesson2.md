@@ -288,5 +288,7 @@ property()函数的语法格式如下
 	print(c.state)
 	print(c.is_dead)
 
+### End
+
 
 			
