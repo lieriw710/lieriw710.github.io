@@ -151,3 +151,124 @@ bytes对象的底层就是一个的字节来存储字符串的文字的。如：
 		print("not digist")
 
 ### Python 文件和目录操作
+#### 1、创建目录
+os.makedirs 可以递归的创建目录结构，比如
+
+	import os
+	os.makedirs("tmp/python/fileop",exist_ok_True)
+
+会在当前工作目录下面创建tmp目录，在tmp目录下面在创建python目录，在python目录下面在创建fileop目录。<br>
+exist_ok = True 指定了，如果某个要创建的目录存在，也不报错，同时使用以创建的目录。
+
+#### 2、删除文件和目录
+os.remove 可以删除一个文件，比如：
+	
+	os.remove("sdf.py")
+shutil。rmtree()可以递归的删除某个目录所有的子目录和子文件：
+
+	import shutil
+	shutil.rmtree("tmp")
+
+#### 3、拷贝目录
+如果我们要拷贝一个目录里面的所有内容(包括子目录和文件等）到另一个目录中，可以使用shutil的copytree函数。
+
+	from shutil import copytree
+	copytree("d:/tools/aaa","e:/new/bbb")
+	# 拷贝d:/tools/aaa目录中的所有内容到 e:/new/bbb中
+
+*** 注意，拷贝前，目标目录必须不存在，否则报错。 ***
+
+#### 4、修改文件名、目录名
+要修改文件名、目录名，可以使用os模块的rename函数，比如
+
+	import os
+	
+	os.rename("d:/tools/aaa","d:/tools/bbb")
+	# 修改目录名为d:/tools/aaa 为d:/tools/bbb
+
+	os.rename("d:/tools/first.py","d:/tools/second.py")
+*** 注意，重命名之前d:/tools/second.py已经存在，则会被覆盖***
+
+#### 4、对文件路径名的操作
+对于文件名的操作，比如获取文件名称，文件所在目录，文件路径的拼接等，都可以使用os.path模块.该模块能自动处理类似Data/data.csv和Data\data.csv这样在windows和linux系统的
+差异
+
+	>import os
+	>path = "/Users/beazley/Data/data.csv"
+	># 获取路径中的文件名部分
+	>os.path.basename(path)
+	"data.csv"
+	
+	># 获取路径中的目录部分
+	>os.path.dirname(path)
+	>'/Users/beazley/Data'
+
+	># 文件路径的拼接
+	>os.path.join('tmp','data',os.path.basename(path))
+	>'tmp/data/data.csv'
+	
+#### 5、判断文件、目录是否存在
+os模块中可以判断一个指定路径的文件或者目录是否存在，可以使用下面的方法：
+
+	import os
+	os.path.exists('d:/systems/cmd.exe')
+	os.path.exists('d:/systems')
+	# 返回值为True，表示存在，否则表示不存在
+
+	os.path.isdir('d:/systems')
+	# 返回值是True表示是目录
+
+#### 6、获取文件的大小和日期
+
+	>import os
+	>os.path.getsize('etc/passed')
+	3669
+	>os.path.getmtime('etc/passd')
+	>127234234.0234
+	>import time
+	>time.ctime(os.path.getmtime('etc/passd')
+
+
+*** etc/passd 表示当前工作目录下的文件或文件名 ***
+
+#### 7、递归的遍历目录下面所有的文件
+假如我们要获取某个目录中所有的文件，包括子目录里面的文件。可以使用os库中的walk方法，<br>
+比如我们要得到某个目录下面的所有的子目录和所有的文件，存放在两个列表中，可以这样写代码：
+
+	import os
+	#目标目录
+	targetDir = r'd:\tmp\util\dist\check'
+	files = []
+	dirs  = []
+	
+	#下面的三个变量dirpath   dirnames    filenames分别代表如下：
+	#dirpath：代表当前遍历到的目录名
+	#dirnames：是列表对象，存放当前dirpath中的所有子目录名
+	#filenames：是列表对象，存放当前dirpath中的所有文件名
+
+	for(dirpath,dirnames,filenames) in os.walk(targetDir):
+	files+=filenames
+	dirs+=dirnames
+	
+	print(files)
+	print(dirs)
+	
+#### 8、得到目录中所有的文件和子目录名
+
+	import os
+	targetDir = r'D:\QT\qt\02.QT案例源码大全'
+	
+	files = os.listdir(targetDir)
+	print(files)
+
+如果我们只需要获取目录中所有的文件，或者只需要子目录，可以这样
+
+	import os
+	form os.path import isfile,join,isdir
+	
+	targetDir = r'D:\QT\qt\02.QT案例源码大全'
+	files for files in os.listdir(targetDir) if isfile(join(targetDir,f))]
+	
+***注意，判断一个文件是否为文件或者目录，使用isfile或者isdir时，需要传入全部路径，因此，上面代码中使用join(targetDir,f)获取当前的文件或者
+目录的名字***
+	

@@ -1,6 +1,6 @@
 ---
 post: layout
-titile: 2020-2-23 English Lesson2
+titile:  2020-2-23 English Lesson2
 ---
 ### combination: a result or product of combining
 
