@@ -311,3 +311,8 @@ Lock 对象的acquire方法 是申请锁。
  线程A 才可以获取这个锁，就可以执行下面的代码了。
 
 如果这时线程B 又执行 这个锁的acquire方法， 就需要等待线程A 执行该锁对象的release方法释放锁， 否则也会等待，不去执行后面的代码。
+
+Academy Event ID	
+
+	APP-3157-YRNB
+	If you experience an Internet connection issue and need to restart your assessment, go to www.oda1.com, and enter in the Event ID above.
