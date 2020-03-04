@@ -4,6 +4,7 @@ titile:  2020-2-28 1000 Most common English words
 ---
 Okay，time to share the list!Remember that with these 1,000 words you'll be abe to ask people how the're dong,tell them about your day and navigate everyday life situations like shopping and public transit .But also keep in mind that native-like fluency ,among many other things,requires about 10,000 vocabulary words.<br>
 
+Q&A VOWEL SOUNDS(American Pronunciation
 
 ###  ﻿1  	      be – “Will you be my friend?”
 
