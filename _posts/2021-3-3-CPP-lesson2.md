@@ -2,9 +2,11 @@
 post: layout
 titile:  2020-3-7 CPP Lesson2
 ---
-### C++ static
+### C++ 操作windows控制台的相关函数
 window有具体api函数来操作这些控制台输出输入缓冲区。可以在指定的位置进行输出，还可以设置字符的颜色等。在 《intel汇编语言程序设计》这本书里看见过，从外国翻译过来的，罗云彬 申校。
+
 ###一、控制台窗口操作
+
 用于控制台窗口操作的API函数如下：
 
 	GetConsoleScreenBufferInfo 获取控制台窗口信息
@@ -39,6 +41,7 @@ window有具体api函数来操作这些控制台输出输入缓冲区。可以�
 	CloseHandle(hOut); // 关闭标准输出设备句柄
 	}
 需要说明的是，控制台窗口的原点坐标是(0, 0)，而最大的坐标是缓冲区大小减1，例如当缓冲区大小为80*25时，其最大的坐标是(79, 24)。
+
 ###二、文本属性操作
 
 与DOS字符相似，控制台窗口中的字符也有相应的属性。这些属性分为：文本的前景色、背景色和双字节字符集(DBCS)属性三种。事实上，我们最关心是文本颜色，这样可以构造出美观的界面。颜色属性都是一些预定义标识：
@@ -76,7 +79,9 @@ window有具体api函数来操作这些控制台输出输入缓冲区。可以�
 	LPDWORD lpNumberOfAttrsWritten // 已写个数
 	);
 另外，获取当前控制台窗口的文本属性是通过调用函数GetConsoleScreenBufferInfo后，在CONSOLE_SCREEN_ BUFFER_INFO结构成员wAttributes中得到。
+
 ### 三、文本输出
+
 文本输出函数有：
 
 	BOOL FillConsoleOutputCharacter( // 填充指定数据的字符
