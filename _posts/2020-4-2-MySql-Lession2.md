@@ -268,7 +268,7 @@ orderitems表中包含每个订单中的各项物品。
 
 本章介绍什么是SQL的聚集函数以及如何利用它们汇总表的数据。
 
-### 聚集函数
+###1 聚集函数
 
 我们经常需要汇总数据而不用把它们实际检索出来，为此MySQL提供了专门的函数，使用这些函数，Mysql查询可用于检索数据，以便分析和报表生成。这种类型的检索例子有以下几种：
 
@@ -350,3 +350,93 @@ count()函数中添加参数，则统计数不包括NULL的值。
 	|        3 |
 	+----------+
 	1 row in set (0.00 sec)
+
+max()返回指定列中的最大值，max()要求指定列名，如下所示：
+
+	mysql> select max(prod_price) as max_price
+	    -> from products;
+	+-----------+
+	| max_price |
+	+-----------+
+	|     55.00 |
+	+-----------+
+	1 row in set (0.02 sec)
+
+###2 组合聚集函数
+以上的聚集函数只涉及单个函数，SELECT语句可根据需要包含多个聚集函数，请看下面的例子：
+
+	mysql> select count(*) as num_items,
+	    -> max(prod_price) as max_price,
+	    -> min(prod_price) as min_price,
+	    -> avg(prod_price) as avg_price,
+	    -> sum(prod_price) as sum_price
+	    -> from products;
+	+-----------+-----------+-----------+-----------+-----------+
+	| num_items | max_price | min_price | avg_price | sum_price |
+	+-----------+-----------+-----------+-----------+-----------+
+	|        14 |     55.00 |      2.50 | 16.133571 |    225.87 |
+	+-----------+-----------+-----------+-----------+-----------+
+	1 row in set (0.00 sec)
+	
+##四 分组数据
+本章将介绍如何分组数据，一遍能汇总表内容的子集。这涉及两个新SELECT语句子句，分别是GROUP BY子句和HAVING子句
+
+###1 数据分组
+使用SELECT 语句中的GROPU BY子句，可以对数据进行分组，例如实现对vend_id 的数目进行统计数量，可采用
+	mysql> SELECT vend_id,count(*) as num_prods
+	    -> FROM products
+	    -> GROUP BY vend_id;
+	+---------+-----------+
+	| vend_id | num_prods |
+	+---------+-----------+
+	|    1001 |         3 |
+	|    1002 |         2 |
+	|    1003 |         7 |
+	|    1005 |         2 |
+	+---------+-----------+
+	4 rows in set (0.02 sec)
+
+###2 GROUP BY 的一些基本用法
+
+	 	GROUP BY子句可以包含任意数目的列。这使得能对分组进行嵌套，
+	  	为数据分组提供更细致的控制。
+	 	如果在GROUP BY子句中嵌套了分组，数据将在最后规定的分组上
+		进行汇总。换句话说，在建立分组时，指定的所有列都一起计算
+		（所以不能从个别的列取回数据）。
+	 	GROUP BY子句中列出的每个列都必须是检索列或有效的表达式
+		（但不能是聚集函数）。如果在SELECT中使用表达式，则必须在
+		GROUP BY子句中指定相同的表达式。不能使用别名。
+	 	除聚集计算语句外，SELECT语句中的每个列都必须在GROUP BY子
+		句中给出。
+	 	如果分组列中具有NULL值，则NULL将作为一个分组返回。如果列
+		中有多行NULL值，它们将分为一组。
+		 GROUP BY子句必须出现在WHERE子句之后，ORDER BY子句之前。
+
+###3 过滤分组
+使用HAVING语句来实现过滤分组，语法与WHERE基本一致，区别在于WHERE只能过滤行，不能过滤分组，
+HAVING 语句可以实现所有的WHERE语句的功能。
+例如
+
+	mysql> select cust_id,count(*) as num_orders
+	    -> from orders
+	    -> group by cust_id
+	    -> having num_orders>=2;
+	+---------+------------+
+	| cust_id | num_orders |
+	+---------+------------+
+	|   10001 |          2 |
+	+---------+------------+
+	1 row in set (0.00 sec)
+
+过滤分组一般要配合分组过滤后进行，因此having 需要在group by 子句后。
+
+###4 SELECT子句顺序
+回忆下之前学习的SELECT 子句，一般有如下子句可用，其顺序依次往下
+
+	子句         	说明                                 	是否必须使用
+	SELECT      	 要返回的列或表达式                    	是
+	FROM         	从中检索数据的表                      	仅在从表选择数据时使用
+	WHERE        	行级过滤                             	否
+	GROUP BY     	分组说明                             	否
+	ORDER BY     	输出排序顺序                         		否
+	LIMIT        	要检索的行数                          	否
