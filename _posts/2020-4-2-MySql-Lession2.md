@@ -1,6 +1,6 @@
 ---
 post: layout
-titile: 2020-4-03 MySQL基本用法
+titile:  2020-4-2 MySql Lesson2
 ---
 ## 一、创建计算字段
 

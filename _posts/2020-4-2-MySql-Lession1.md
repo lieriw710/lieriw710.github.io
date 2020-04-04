@@ -1,6 +1,6 @@
 ---
 post: layout
-titile:  2020-3-22 MySQL安装
+titile:  2020-4-2 MySql Lesson1
 ---
 # 1 解压安装
 1、在MySQL官方网站下载社区解压版本压缩包，解压到E盘其中一个目录下。<br>
