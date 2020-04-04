@@ -1,7 +1,7 @@
 
 ---
 post: layout
-title: 2020-4-03 MySQL基本用法
+titile: 2020-4-03 MySQL基本用法
 ---
 
 ## 一、创建计算字段
